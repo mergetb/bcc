@@ -184,7 +184,7 @@ static int probe_num_arguments(const char *bin_path, const char *func_name) {
   return num_arguments;
 }
 
-TEST_CASE("test listing all USDT probes in Ruby/MRI", "[usdt]") {
+TEST_CASE("test listing all USDT probes in Ruby/MRI", "[usdt][ruby-dtrace]") {
   size_t mri_probe_count = 0;
 
   SECTION("without a running Ruby process") {
@@ -193,7 +193,11 @@ TEST_CASE("test listing all USDT probes in Ruby/MRI", "[usdt]") {
     if (!ctx.loaded())
       return;
 
-    REQUIRE(ctx.num_probes() > 10);
+    // if the installed ruby was not built with dtrace support, abandon this
+    // test.
+    if(ctx.num_probes() <= 10) {
+      return;
+    }
     mri_probe_count = ctx.num_probes();
 
     SECTION("GC static probe") {

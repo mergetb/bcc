@@ -75,7 +75,11 @@ TEST_CASE("test pinned table", "[pinned_table]") {
 
     ebpf::BPF bpf;
     ebpf::StatusTuple res(0);
+    freopen("/dev/null", "w", stdout);
+    freopen("/dev/null", "w", stderr);
     res = bpf.init(BPF_PROGRAM);
+    freopen("/dev/tty", "w", stdout);
+    freopen("/dev/tty", "w", stderr);
     REQUIRE(res.code() != 0);
   }
 

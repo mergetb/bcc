@@ -15,10 +15,10 @@ if [[ ! -x bcc-lua ]]; then
     exit 0
 fi
 
-LIBRARY=$(ldd bcc-lua | grep luajit)
-if [ $? -ne 0 -o -z "$LIBRARY" ] ; then
-    fail "bcc-lua depends on libluajit"
-fi
+#LIBRARY=$(ldd bcc-lua | grep luajit)
+#if [ $? -ne 0 -o -z "$LIBRARY" ] ; then
+#    fail "bcc-lua depends on libluajit"
+#fi
 
 rm -f probe.lua
 echo "return function(BPF) print(\"Hello world\") end" > probe.lua

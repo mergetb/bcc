@@ -64,6 +64,8 @@ TEST_CASE("test usdt argument parsing", "[usdt]") {
     USDT::ArgumentParser_x64 parser("4@i%ra+1r");
 #endif
     USDT::Argument arg;
+    freopen("/dev/null", "w", stdout);
+    freopen("/dev/null", "w", stderr);
     REQUIRE(!parser.parse(&arg));
     int i;
     for (i = 0; i < 10 && !parser.done(); ++i) {
@@ -71,6 +73,8 @@ TEST_CASE("test usdt argument parsing", "[usdt]") {
     }
     // Make sure we reach termination
     REQUIRE(i < 10);
+    freopen("/dev/tty", "w", stdout);
+    freopen("/dev/tty", "w", stderr);
   }
   SECTION("argument examples from the Python implementation") {
 #ifdef __aarch64__

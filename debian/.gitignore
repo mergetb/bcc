@@ -1,0 +1,14 @@
+*.substvars
+*.build
+*.buildinfo
+*.changes
+*.debhelper
+bcc-lua
+bcc-tools
+files
+libbcc-examples
+libbcc
+python-bcc
+python3-bcc
+tmp
+

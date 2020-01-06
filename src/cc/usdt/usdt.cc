@@ -366,9 +366,10 @@ Context::Context(const std::string &bin_path, uint8_t mod_match_inode_only)
       cmd_bin_path_ = full_path;
       loaded_ = true;
     }
-  }
-  for (const auto &probe : probes_)
+  } 
+  for (const auto &probe : probes_) {
     probe->finalize_locations();
+  }
 }
 
 Context::Context(int pid, uint8_t mod_match_inode_only)

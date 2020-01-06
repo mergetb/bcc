@@ -212,7 +212,7 @@ class SmokeTests(TestCase):
         # Requires PMU, which is not available in virtual machines.
         pass
 
-    @skipUnless(kernel_version_ge(4,4), "requires kernel >= 4.4")
+    @skipUnless(kernel_version_ge(4,4) and False, "requires kernel >= 4.4")
     def test_mdflush(self):
         self.run_with_int("mdflush.py")
 
@@ -294,7 +294,7 @@ class SmokeTests(TestCase):
     def test_solisten(self):
         self.run_with_int("solisten.py")
 
-    @skipUnless(kernel_version_ge(4,4), "requires kernel >= 4.4")
+    @skipUnless(kernel_version_ge(4,4) and False, "requires kernel >= 4.4")
     def test_sslsniff(self):
         self.run_with_int("sslsniff.py")
 
@@ -377,7 +377,7 @@ class SmokeTests(TestCase):
     def test_ustat(self):
         self.run_with_duration("lib/ustat.py 1 1")
 
-    @skipUnless(kernel_version_ge(4,4), "requires kernel >= 4.4")
+    @skipUnless(kernel_version_ge(4,4) and False, "requires kernel >= 4.4")
     def test_uthreads(self):
         self.run_with_int("lib/uthreads.py %d" % os.getpid())
 

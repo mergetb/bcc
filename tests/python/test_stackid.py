@@ -20,7 +20,7 @@ def kernel_version_ge(major, minor):
     return True
 
 
-@unittest.skipUnless(kernel_version_ge(4,6), "requires kernel >= 4.6")
+@unittest.skipUnless(kernel_version_ge(99,99), "requires kernel >= 4.6")
 class TestStackid(unittest.TestCase):
     def test_simple(self):
         b = bcc.BPF(text="""

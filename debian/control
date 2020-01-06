@@ -3,16 +3,19 @@ Maintainer: Brenden Blanco <bblanco@plumgrid.com>
 Section: misc
 Priority: optional
 Standards-Version: 3.9.5
-Build-Depends: debhelper (>= 9), cmake,
-    libllvm3.7 [!arm64] | libllvm3.8 [!arm64] | libllvm6.0,
-    llvm-3.7-dev [!arm64] | llvm-3.8-dev [!arm64] | llvm-6.0-dev,
-    libclang-3.7-dev [!arm64] | libclang-3.8-dev [!arm64] | libclang-6.0-dev,
-    clang-format | clang-format-3.7 [!arm64] | clang-format-3.8 [!arm64] | clang-format-6.0,
+Build-Depends: debhelper (>= 9), cmake, ninja-build,
+    linux-headers-amd64,
+    libllvm3.7 [!arm64] | libllvm3.8 [!arm64] | libllvm6.0 | libllvm7,
+    llvm-3.7-dev [!arm64] | llvm-3.8-dev [!arm64] | llvm-6.0-dev | llvm-dev,
+    libclang-3.7-dev [!arm64] | libclang-3.8-dev [!arm64] | libclang-6.0-dev | libclang-7-dev,
+    clang-format | clang-format-3.7 [!arm64] | clang-format-3.8 [!arm64] | clang-format-6.0 | clang-frmat-7,
     libelf-dev, bison, flex, libfl-dev, libedit-dev, zlib1g-dev, git,
     python (>= 2.7), python-netaddr, python-pyroute2, luajit,
-    libluajit-5.1-dev, arping, inetutils-ping | iputils-ping, iperf, netperf,
-    ethtool, devscripts, python3, dh-python
+    libluajit-5.1-dev, arping, inetutils-ping | iputils-ping, iperf,
+    ethtool, devscripts, python3, dh-python,
+    texinfo
 Homepage: https://github.com/iovisor/bcc
+Recommends: netperf
 
 Package: libbcc
 Architecture: all

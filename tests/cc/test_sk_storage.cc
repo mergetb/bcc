@@ -23,7 +23,7 @@
 #include "BPF.h"
 #include "catch.hpp"
 
-#if LINUX_VERSION_CODE >= KERNEL_VERSION(5, 2, 0)
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(5, 4, 0)
 
 TEST_CASE("test sk_storage map", "[sk_storage]") {
   {

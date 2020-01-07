@@ -49,7 +49,7 @@ Package: bcc-tools
 Architecture: all
 Provides: bpfcc-tools
 Conflicts: bpfcc-tools
-Depends: python-bcc (= ${binary:Version})
+Depends: python3-bcc (= ${binary:Version})
 Description: Command line tools for BPF Compiler Collection (BCC)
 
 Package: bcc-lua
